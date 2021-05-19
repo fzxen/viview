@@ -10,7 +10,7 @@
    "jsx": "preserve",
    "noLib": false,
    "target": "es6",
-   "sourceMap": true,
+   "sourceMap": false,
    "lib": [
      "ESNext", "DOM"
    ],

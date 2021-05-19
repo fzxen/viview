@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "main": "output/index.js",
+  "types": "output/index.d.ts",
   "keywords": [
     "viview",
     "layout"
@@ -12,7 +13,7 @@
     "url": "git+https://github.com/zxffan/viview.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@viview/config-provider": "^0.0.1",
     "@viview/shared": "^0.0.1"

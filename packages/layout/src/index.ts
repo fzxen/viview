@@ -1,5 +1,5 @@
 import type { App } from "vue";
-import { EnrichedSFC } from "@viview/shared/src";
+import { EnrichedSFC } from "@viview/shared";
 import Layout from "./layout.vue";
 import Aside from "./aside.vue";
 import Footer from "./footer.vue";
@@ -9,7 +9,6 @@ import Main from "./main.vue";
 const components = { Aside, Footer, Header, Main };
 const names = Object.keys(components);
 
-names.forEach((name) => (Layout[name] = components[name]));
 Layout.Aside = Aside;
 Layout.Footer = Footer;
 Layout.Header = Header;
