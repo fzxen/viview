@@ -1,0 +1,16 @@
+{
+  "name": "@viview/shared",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.ts",
+  "keywords": [
+    "viview",
+    "shared"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zxffan/viview.git"
+  },
+  "author": "",
+  "license": "ISC"
+}

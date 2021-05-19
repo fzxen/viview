@@ -1,0 +1,36 @@
+{
+  "name": "viview",
+  "version": "0.0.1",
+  "description": "",
+  "private": true,
+  "main": "index.js",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "node build/build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zxffan/viview.git"
+  },
+  "keywords": [
+    "vue",
+    "viview"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zxffan/viview/issues"
+  },
+  "homepage": "https://github.com/zxffan/viview#readme",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.2.1",
+    "lerna": "^4.0.0",
+    "rollup": "^2.48.0",
+    "rollup-plugin-vue": "^6.0.0-beta.10"
+  },
+  "dependencies": {
+    "vue": "^3.0.11"
+  }
+}

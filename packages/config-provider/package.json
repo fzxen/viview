@@ -1,0 +1,19 @@
+{
+  "name": "@viview/config-provider",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.ts",
+  "keywords": [
+    "viview",
+    "config-provider"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zxffan/viview.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@viview/shared": "^0.0.1"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "@viview/layout",
+  "version": "0.0.1",
+  "description": "",
+  "main": "output/index.js",
+  "keywords": [
+    "viview",
+    "layout"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zxffan/viview.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@viview/config-provider": "^0.0.1",
+    "@viview/shared": "^0.0.1"
+  }
+}
