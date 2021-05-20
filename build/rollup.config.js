@@ -1,35 +1,60 @@
-import ts from "@rollup/plugin-typescript";
-import dts from "rollup-plugin-dts";
-import { readdirSync } from "fs";
-import path from "path";
-import vue from "rollup-plugin-vue";
+const ts = require("@rollup/plugin-typescript");
+const { default: dts } = require("rollup-plugin-dts");
+const { readdirSync } = require("fs");
+const path = require("path");
+const vue = require("rollup-plugin-vue");
+const { rollup } = require("rollup");
+const logger = require("./log");
 
-const packages = readdirSync(path.resolve(__dirname, "../packages")).filter(
-  (name) => !name.startsWith("_")
-);
+/**
+ * yarn build shared layout
+ * or yarn build for all packages
+ */
+function genPackages() {
+  let packages = process.argv.slice(2);
+  if (packages.length <= 0) {
+    packages = readdirSync(path.resolve(__dirname, "../packages")).filter(
+      (name) => !name.startsWith("_")
+    );
+  }
 
-export default packages
-  .map((pkg) => [
-    // esm bundle
+  return packages;
+}
+
+async function build(input, output) {
+  const bundle = await rollup(input);
+
+  let outputs = Array.isArray(output) ? output : [output];
+  for (const output of outputs) {
+    await bundle.write(output);
+    logger.success(`${input.input} -> ${output.file}`);
+  }
+}
+
+genPackages().forEach((pkg) => {
+  // build bundle
+  build(
     {
       input: path.resolve(__dirname, `../packages/${pkg}/src/index.ts`),
       plugins: [ts(), vue()],
       external: ["vue"],
-      output: {
-        format: "esm",
-        name: pkg,
-        file: path.resolve(__dirname, `../packages/${pkg}/output/index.js`),
-      },
     },
+    {
+      format: "esm",
+      name: pkg,
+      file: path.resolve(__dirname, `../packages/${pkg}/output/index.js`),
+    }
+  );
 
-    // .d.ts
+  // build .d.ts
+  build(
     {
       input: path.resolve(__dirname, `../packages/${pkg}/src/index.ts`),
       plugins: [dts(), vue()],
-      output: {
-        file: path.resolve(__dirname, `../packages/${pkg}/output/index.d.ts`),
-        format: "esm",
-      },
     },
-  ])
-  .flat();
+    {
+      file: path.resolve(__dirname, `../packages/${pkg}/output/index.d.ts`),
+      format: "esm",
+    }
+  );
+});
