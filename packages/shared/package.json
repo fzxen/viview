@@ -2,7 +2,8 @@
   "name": "@viview/shared",
   "version": "0.0.1",
   "description": "",
-  "main": "index.ts",
+  "main": "src/index.ts",
+  "module": "output/index.js",
   "types": "output/index.d.ts",
   "keywords": [
     "viview",

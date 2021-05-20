@@ -15,7 +15,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@viview/config-provider": "^0.0.1",
     "@viview/shared": "^0.0.1"
   }
 }

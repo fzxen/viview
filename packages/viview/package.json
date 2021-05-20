@@ -2,7 +2,7 @@
   "name": "viview",
   "version": "0.0.1",
   "description": "",
-  "main": "index.ts",
+  "main": "output/index.js",
   "types": "output/index.d.ts",
   "keywords": [
     "viview"
@@ -14,7 +14,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@viview/config-provider": "^0.0.1",
     "@viview/layout": "^0.0.1"
   }
 }

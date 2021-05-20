@@ -5,6 +5,7 @@ import Aside from "./aside.vue";
 import Footer from "./footer.vue";
 import Header from "./header.vue";
 import Main from "./main.vue";
+import { GlobalOptions, provideOption } from "@viview/shared";
 
 const components = { Aside, Footer, Header, Main };
 const names = Object.keys(components);
@@ -14,7 +15,8 @@ Layout.Footer = Footer;
 Layout.Header = Header;
 Layout.Main = Main;
 
-Layout.install = function (app: App) {
+Layout.install = function (app: App, options?: GlobalOptions) {
+  provideOption(app, options);
   names.forEach((name) => app.component(name, components[name]));
 };
 
