@@ -5,6 +5,10 @@
   "main": "dist/viview.browser.js",
   "module": "dist/viview.esm.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "packages"
+  ],
   "scripts": {
     "build": "yarn lib && yarn style",
     "watch": "yarn watch:lib & yarn watch:style",
@@ -12,7 +16,8 @@
     "watch:lib": "rollup -wc build/rollup.config.js",
     "style": "gulp --f ./build/gulpfile.js build",
     "watch:style": "gulp --f ./build/gulpfile.js watch",
-    "live": "node build/live.js"
+    "live": "node build/live.js",
+    "lint": "eslint --fix ./packages --ext .vue,.js,.ts"
   },
   "repository": {
     "type": "git",

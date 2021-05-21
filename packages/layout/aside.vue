@@ -14,7 +14,7 @@ export default defineComponent({
   props: {
     width: {
       type: String,
-      default: '300px',
+      default: "300px",
       validator: validateCssUnit
     }
   },

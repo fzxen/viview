@@ -4,14 +4,14 @@
   </main>
 </template>
 <script lang="ts">
-import { defineComponent ,computed} from 'vue'
-import { getClassName } from '../shared';
+import { defineComponent ,computed} from "vue";
+import { getClassName } from "../shared";
 
 export default defineComponent({
-  name: 'ViMain',
+  name: "ViMain",
   
   setup() {
-    return {className: computed(() => getClassName("main"))}
+    return {className: computed(() => getClassName("main"))};
   }
-})
+});
 </script>
