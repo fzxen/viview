@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Layout</title>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+
+  <script src="https://unpkg.com/vue@next"></script>
+  <script src="/viview.browser.js"></script>
+
+  <script>
+    const { createApp } = Vue;
+    const { Layout } = viview;
+
+    const App = {
+      name: "App",
+      components: { Layout: Layout.Layout },
+      template: `
+        <Layout>12</Layout>
+      `,
+    };
+    createApp(App).mount("#app");
+  </script>
+</html>

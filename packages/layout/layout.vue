@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { computed, defineComponent } from "vue";
-import { getClassName } from '@viview/shared'
+import { getClassName } from '../shared'
 
 export default defineComponent({
   name: "Layout",

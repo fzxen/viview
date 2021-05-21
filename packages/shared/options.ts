@@ -26,12 +26,5 @@ export function provideOption(app: App, options?: GlobalOptions) {
 }
 
 export function injectOption() {
-  const options = inject(optionsKey);
-
-  return Object.assign<GlobalOptions, Partial<GlobalOptions>>(
-    {
-      prefix: "vi",
-    },
-    options ?? {}
-  );
+  return inject(optionsKey, { prefix: "vi" });
 }
