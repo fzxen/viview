@@ -1,5 +1,5 @@
 {
-  "name": "viview",
+  "name": "vi-view",
   "version": "0.0.1",
   "description": "",
   "private": true,
@@ -8,7 +8,7 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "node build/rollup.config.js"
+    "build": "rollup -c build/rollup.config.js"
   },
   "repository": {
     "type": "git",
