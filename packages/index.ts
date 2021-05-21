@@ -1,7 +1,7 @@
 import { App, Plugin } from "vue";
 import { GlobalOptions, provideOption } from "./shared";
 
-import { default as _Layout } from "./layout";
+import _Layout from "./layout";
 
 export const Layout = _Layout;
 

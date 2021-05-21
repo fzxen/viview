@@ -1,4 +1,4 @@
-import ts from "@rollup/plugin-typescript";
+import ts from "rollup-plugin-typescript2";
 import dts from "rollup-plugin-dts";
 import path from "path";
 import vue from "rollup-plugin-vue";
@@ -21,7 +21,7 @@ export default [
         },
       },
     ],
-    plugins: [ts(), vue()],
+    plugins: [vue({ target: "browser", css: false }), ts()],
     external: ["vue"],
   },
 
@@ -31,6 +31,6 @@ export default [
       file: path.resolve(__dirname, "../dist/index.d.ts"),
       format: "esm",
     },
-    plugins: [dts(), vue()],
+    plugins: [ts(), vue({ target: "browser", css: false }), dts()],
   },
 ];

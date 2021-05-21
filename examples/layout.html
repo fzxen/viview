@@ -5,6 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Layout</title>
+    <link rel="stylesheet" href="/viview.css" />
+    <style>
+      #app {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 10px;
+      }
+      #app > .vi_layout {
+        height: 300px;
+      }
+      .vi_main {
+        background-color: #e9eef3;
+      }
+      .vi_header,
+      .vi_footer {
+        background-color: #b3c0d1;
+      }
+      .vi_aside {
+        background-color: #d3dce6;
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>
@@ -19,9 +40,45 @@
 
     const App = {
       name: "App",
-      components: { Layout: Layout.Layout },
+      components: {
+        Layout,
+        Header: Layout.Header,
+        Footer: Layout.Footer,
+        Main: Layout.Main,
+        Aside: Layout.Aside,
+      },
       template: `
-        <Layout>12</Layout>
+        <Layout>
+          <Header>header</Header>
+          <Main>main</Main>
+          <Footer>footer</Footer>
+        </Layout>
+        <Layout>
+          <Header>header</Header>
+          <Layout>
+            <Aside>aside</Aside>
+            <Main>main</Main>
+          </Layout>
+          <Footer>footer</Footer>
+        </Layout>
+        <Layout>
+          <Aside width="100px">aside</Aside>
+          <Layout>
+            <Header>header</Header>
+            <Main>main</Main>
+            <Footer>footer</Footer>
+          </Layout>
+        </Layout>
+        <Layout>
+          <Header>header</Header>
+          <Layout>
+            <Aside width="100px">aside</Aside>
+            <Layout>
+              <Main>main</Main>
+              <Footer>footer</Footer>
+            </Layout>
+          </Layout>
+        </Layout>
       `,
     };
     createApp(App).mount("#app");

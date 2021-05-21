@@ -21,11 +21,11 @@ gulp.task("sass", async () => {
     .pipe(sass({ style: "expanded" }))
     .pipe(autoprefix())
     .pipe(rename(name))
-    .pipe(gulp.dest(ab("./dist/")))
+    .pipe(gulp.dest(ab("../dist/")))
     .pipe(rename(minName))
     .pipe(minifycss())
     .pipe(uglifycss())
-    .pipe(gulp.dest(ab("./dist/")));
+    .pipe(gulp.dest(ab("../dist/")));
 });
 
 gulp.task("default", gulp.series("sass"));

@@ -1,3 +1,12 @@
 .#{$--prefix}_layout {
-  color: red
+  display: flex;
+
+  &>.#{$--prefix}_main,
+  &>.#{$--prefix}_layout {
+    flex: 1;
+  }
+
+  &.is-vertical {
+    flex-direction: column;
+  }
 }
