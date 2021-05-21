@@ -6,9 +6,12 @@
   "module": "dist/viview.esm.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "rollup -c build/rollup.config.js",
-    "watch": "rollup -wc build/rollup.config.js",
-    "style": "gulp --f ./build/gulpfile.js",
+    "build": "yarn lib && yarn style",
+    "watch": "yarn watch:lib & yarn watch:style",
+    "lib": "rollup -c build/rollup.config.js",
+    "watch:lib": "rollup -wc build/rollup.config.js",
+    "style": "gulp --f ./build/gulpfile.js build",
+    "watch:style": "gulp --f ./build/gulpfile.js watch",
     "live": "node build/live.js"
   },
   "repository": {

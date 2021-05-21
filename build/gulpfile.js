@@ -15,7 +15,7 @@ const src = ab("../packages/theme/index.scss");
 const name = "viview.css";
 const minName = "viview.min.css";
 
-gulp.task("sass", async () => {
+async function buildStyle() {
   await gulp
     .src(src)
     .pipe(sass({ style: "expanded" }))
@@ -26,6 +26,12 @@ gulp.task("sass", async () => {
     .pipe(minifycss())
     .pipe(uglifycss())
     .pipe(gulp.dest(ab("../dist/")));
-});
+}
 
-gulp.task("default", gulp.series("sass"));
+exports.build = async function () {
+  gulp.series(buildStyle);
+};
+
+exports.watch = async function () {
+  gulp.watch(ab("../packages/theme/**/*.scss"), buildStyle);
+};
