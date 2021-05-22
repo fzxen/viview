@@ -1,11 +1,46 @@
 $--prefix: "vi";
 
+// !default 表示 不可修改
 
-// * color
-$--color-primary: #409EFF !default;
-$--color-white: #FFFFFF !default;
+// * primary color
+$--color-primary: #409eff !default;
+
+// * secondary color
+$--color-success: #67c23a !default;
+$--color-warning: #e6a23c !default;
+$--color-danger: #f56c6c !default;
+$--color-info: #909399 !default;
+
+// * base color
+$--color-white: #ffffff !default;
 $--color-black: #000000 !default;
+$--color-transparent: transparent !default;
 
+// * text color
+$--color-primary-text: #303133 !default;
+$--color-primary-regular: #606266 !default;
+$--color-primary-sub: #909399 !default;
+$--color-primary-placeholder: #c0c4cc !default;
+
+// * border color
+$--color-border-base: #dcdfe6 !default;
+$--color-border-light: #e4e7ed !default;
+$--color-border-lighter: #ebeef5 !default;
+$--color-border-extra-light: #f2f6fc !default;
+
+// * border-------------------------------------------------------------
+$--border-width-solid: 1px !default;
+$--border-width-dashed: 2px !default;
+
+$--border-radius-zero: 0px !default;
+$--border-radius-small: 2px !default;
+$--border-radius-base: 4px !default;
+$--border-radius-circle: 30px !default;
+
+// * box-shadow-------------------------------------------------------------
+$--box-shadow-base: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04) !default;
+$--box-shadow-dark: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.12) !default;
+$--box-shadow-base: 0 2px 12px 0 rgba(0, 0, 0, 0.1) !default;
 
 // * breakpoints
 $--sm: 768px !default;
@@ -13,14 +48,20 @@ $--md: 992px !default;
 $--lg: 1200px !default;
 $--xl: 1920px !default;
 
-$--breakpoints: ("xs": (max-width: $--sm - 1,
+$--breakpoints: (
+  "xs": (
+    max-width: $--sm - 1,
   ),
-  "sm": (min-width: $--sm,
+  "sm": (
+    min-width: $--sm,
   ),
-  "md": (min-width: $--md,
+  "md": (
+    min-width: $--md,
   ),
-  "lg": (min-width: $--lg,
+  "lg": (
+    min-width: $--lg,
   ),
-  "xl": (min-width: $--xl,
+  "xl": (
+    min-width: $--xl,
   ),
 );
