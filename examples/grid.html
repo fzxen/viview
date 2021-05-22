@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid</title>
+    <link rel="stylesheet" href="/viview.css" />
+    <style>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      .text {
+        background-color: aquamarine;
+        text-align: center;
+        height: 80px;
+        line-height: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="/viview.browser.js"></script>
+    <script>
+      const { createApp } = Vue;
+      const { Grid } = viview;
+
+      const App = {
+        name: "App",
+        components: {
+          Row: Grid.Row,
+          Col: Grid.Col,
+        },
+        template: `
+        <h2>1列</h2>
+        <Row gutter="2px">
+          <Col :span="24">
+            <div class="text">1</div>
+          </Col>
+        </Row>
+
+        <h2>6列 gutter="2px" 后三个 offset=2</h2>
+        <Row gutter="2px">
+          <Col :span="2" :offset="i > 3 ? 2: 0" v-for="i of 6" :key="i">
+            <div class="text">{{i}}</div>
+          </Col>
+        </Row>
+
+        <h2>24列</h2>
+        <Row>
+          <Col :span="1" v-for="i of 24" :key="i">
+            <div class="text">{{i}}</div>
+          </Col>
+        </Row>
+
+        <h2>pul向左偏移 push向右偏移 偏移不会影响其它列</h2>
+        <Row>
+          <Col :span="2">
+            <div class="text">1</div>
+          </Col>
+          <Col :span="2" :push="6">
+            <div class="text">2</div>
+          </Col>
+          <Col :span="2">
+            <div class="text">3</div>
+          </Col>
+        </Row>
+
+        <h2>响应式</h2>
+        <Row>
+          <Col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
+            <div class="text">1</div>
+          </Col>
+          <Col :xs="4" :sm="6" :md="8" :lg="9" :xl="11" :offset="2">
+            <div class="text">2</div>
+          </Col>
+        </Row>
+      `,
+      };
+      createApp(App).mount("#app");
+    </script>
+  </body>
+</html>

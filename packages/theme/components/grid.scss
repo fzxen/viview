@@ -1,0 +1,87 @@
+@use "sass:math";
+
+.#{$--prefix}_row {
+  &.is-flex {
+    display: flex;
+  }
+
+  $justify-map: (
+    start: flex-start,
+    center: center,
+    end: flex-end,
+    between: space-between,
+    around: space-around,
+  );
+  $align-map: (
+    start: flex-start,
+    center: center,
+    end: flex-end,
+  );
+
+  @each $key, $val in $justify-map {
+    &.is-justify-#{$key} {
+      justify-content: $val;
+    }
+  }
+
+  @each $key, $val in $align-map {
+    &.is-align-#{$key} {
+      align-items: $val;
+    }
+  }
+}
+
+.#{$--prefix}_col {
+  $--unit: math.div(100, 24);
+
+  @for $i from 0 to 25 {
+    &__span-#{$i} {
+      width: ($--unit * $i) * 1%;
+    }
+
+    &__offset-#{$i} {
+      margin-left: ($--unit * $i) * 1%;
+    }
+
+    &__pull-#{$i} {
+      position: relative;
+      right: ($--unit * $i) * 1%;
+    }
+
+    &__push-#{$i} {
+      position: relative;
+      left: ($--unit * $i) * 1%;
+    }
+  }
+  &-span-0 {
+    display: none;
+  }
+
+  @each $key, $val in $--breakpoints {
+    @media only screen and #{inspect($val)} {
+      @for $i from 0 through 25 {
+        &__#{$key}-span-#{$i} {
+          width: ($--unit * $i) * 1%;
+        }
+
+        &__#{$key}-offset-#{$i} {
+          margin-left: ($--unit * $i) * 1%;
+        }
+
+        &__#{$key}-pull-#{$i} {
+          position: relative;
+          right: ($--unit * $i) * 1%;
+        }
+
+        &__#{$key}-push-#{$i} {
+          position: relative;
+          left: ($--unit * $i) * 1%;
+        }
+      }
+    }
+
+    &__#{$key}-0 {
+      display: none;
+    }
+  }
+}
