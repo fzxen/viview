@@ -1,5 +1,10 @@
 <template>
-  <button :class="className" :disabled="props.disabled" @click="emitClick">
+  <button
+    :class="className"
+    :disabled="props.disabled"
+    @click="emitClick"
+    :autofocus="props.autofocus"
+  >
     <slot></slot>
   </button>
 </template>
@@ -59,7 +64,6 @@ const className = computed(() => [
     "is-circle": props.circle,
     "is-loading": props.loading,
     "is-disabled": props.disabled,
-    "is-autofocus": props.autofocus,
   },
 ]);
 
