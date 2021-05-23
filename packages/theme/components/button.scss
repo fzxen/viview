@@ -1,0 +1,264 @@
+@mixin plain-variant($color) {
+  color: $color;
+  background-color: mix($--color-white, $color, 90%);
+  border-color: mix($--color-white, $color, 60%);
+
+  &:hover,
+  &:focus {
+    background-color: $color;
+    border-color: $color;
+    color: $--color-white;
+  }
+
+  &:active {
+    background-color: mix(
+      $--color-black,
+      $color,
+      $--button-active-shade-percent
+    );
+    border-color: mix($--color-black, $color, $--button-active-shade-percent);
+    color: $--color-white;
+    outline: none;
+  }
+}
+
+@mixin button-variant($color, $bgColor, $borderColor) {
+  color: $color;
+  background-color: $bgColor;
+  border-color: $borderColor;
+
+  &:hover,
+  &:focus {
+    color: $color;
+    // mix($color1, $color2, $weight) 混合颜色
+    // $color1 以权重 $weight 混合
+    // $color2 以权重 1-$weight 混合
+    background-color: mix(
+      $--color-white,
+      $bgColor,
+      $--button-hover-tint-percent
+    );
+    border-color: mix(
+      $--color-white,
+      $borderColor,
+      $--button-hover-tint-percent
+    );
+  }
+
+  &:active {
+    color: $color;
+    background-color: mix(
+      $--color-white,
+      $bgColor,
+      $--button-active-shade-percent
+    );
+    border-color: mix(
+      $--color-white,
+      $borderColor,
+      $--button-active-shade-percent
+    );
+  }
+
+  &.is-plain {
+    @include plain-variant($bgColor);
+  }
+
+  &.is-disabled {
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      color: $--color-white;
+      background-color: mix($bgColor, $--color-white);
+      border-color: mix($borderColor, $--color-white);
+    }
+  }
+}
+
+@mixin button-size(
+  $padding-vertical,
+  $padding-horizontal,
+  $font-size,
+  $border-radius
+) {
+  padding: $padding-vertical $padding-horizontal;
+  font-size: $font-size;
+  border-radius: $border-radius;
+  &.is-round {
+    padding: $padding-vertical $padding-horizontal;
+  }
+}
+
+.#{$--prefix}_button {
+  display: inline-block;
+  min-height: $--button-default-height;
+  cursor: pointer;
+  white-space: nowrap;
+  outline: none;
+  border: $--border-width-solid solid $--color-border-base;
+  text-align: center;
+  box-sizing: border-box;
+  user-select: none;
+  line-height: 1;
+
+  // * default button size
+  @include button-size(
+    $--button-padding-vertical,
+    $--button-padding-horizontal,
+    $--button-default-font-size,
+    $--button-border-radius
+  );
+  &.is-round {
+    border-radius: $--border-radius-circle;
+  }
+  &.is-circle {
+    border-radius: 50%;
+    padding: $--button-padding-vertical;
+  }
+  &.is-disabled {
+    &,
+    &:hover,
+    &:focus {
+      color: $--button-disabled-font-color;
+      cursor: not-allowed;
+      background-color: $--button-disabled-bg-color;
+      border-color: $--button-disabled-border-color;
+    }
+  }
+
+  // * button type
+  &__type-default {
+    color: $--button-type-default-font-color;
+    background-color: $--button-type-default-bg-color;
+    border-color: $--button-type-default-border-color;
+
+    &:hover,
+    &:focus {
+      color: $--color-primary;
+      border-color: $--color-primary-light-7;
+      background-color: $--color-primary-light-9;
+      outline: none;
+    }
+
+    &:active {
+      color: mix(
+        $--color-black,
+        $--color-primary,
+        $--button-active-shade-percent
+      );
+      border-color: mix(
+        $--color-black,
+        $--color-primary,
+        $--button-active-shade-percent
+      );
+      outline: none;
+    }
+
+    &.is-plain {
+      background: $--color-white;
+      &:hover,
+      &:active,
+      &:focus {
+        background: $--color-white;
+      }
+    }
+  }
+  &__type-primary {
+    @include button-variant(
+      $--button-type-primary-font-color,
+      $--button-type-primary-bg-color,
+      $--button-type-primary-border-color
+    );
+  }
+  &__type-success {
+    @include button-variant(
+      $--button-type-success-font-color,
+      $--button-type-success-bg-color,
+      $--button-type-success-border-color
+    );
+  }
+  &__type-info {
+    @include button-variant(
+      $--button-type-info-font-color,
+      $--button-type-info-bg-color,
+      $--button-type-info-border-color
+    );
+  }
+  &__type-warning {
+    @include button-variant(
+      $--button-type-warning-font-color,
+      $--button-type-warning-bg-color,
+      $--button-type-warning-border-color
+    );
+  }
+  &__type-danger {
+    @include button-variant(
+      $--button-type-danger-font-color,
+      $--button-type-danger-bg-color,
+      $--button-type-danger-border-color
+    );
+  }
+  &__type-text {
+    display: inline;
+    padding-left: 0;
+    padding-right: 0;
+    background-color: $--color-transparent;
+    border-color: $--color-transparent;
+    color: $--color-primary;
+
+    &:hover,
+    &:focus {
+      color: mix(
+        $--color-white,
+        $--color-primary,
+        $--button-hover-tint-percent
+      );
+      border-color: transparent;
+      background-color: transparent;
+    }
+    &:active {
+      color: mix(
+        $--color-black,
+        $--color-primary,
+        $--button-active-shade-percent
+      );
+      border-color: transparent;
+      background-color: transparent;
+    }
+
+    &.is-disabled,
+    &.is-disabled:hover,
+    &.is-disabled:focus {
+      border-color: transparent;
+    }
+  }
+
+  // * button size
+  &__size-medium {
+    min-height: $--button-medium-height;
+    @include button-size(
+      $--button-medium-padding-vertical,
+      $--button-medium-padding-horizontal,
+      $--button-medium-font-size,
+      $--button-medium-border-radius
+    );
+  }
+  &__size-small {
+    min-height: $--button-small-height;
+    @include button-size(
+      $--button-small-padding-vertical,
+      $--button-small-padding-horizontal,
+      $--button-small-font-size,
+      $--button-small-border-radius
+    );
+  }
+  &__size-mini {
+    min-height: $--button-mini-height;
+    @include button-size(
+      $--button-mini-padding-vertical,
+      $--button-mini-padding-horizontal,
+      $--button-mini-font-size,
+      $--button-mini-border-radius
+    );
+  }
+}

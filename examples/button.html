@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid</title>
+    <link rel="stylesheet" href="/viview.css" />
+    <style>
+      .vi_button {
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="/viview.browser.js"></script>
+    <script>
+      const { createApp } = Vue;
+      const { Grid, Button } = viview;
+
+      const App = {
+        name: "App",
+        components: {
+          Row: Grid.Row,
+          Col: Grid.Col,
+          Button,
+        },
+        template: `
+        <h2>type</h2>
+        <Row gutter="10px">
+          <Button>默认按钮</Button>
+          <Button type="primary">主要按钮</Button>
+          <Button type="success">成功按钮</Button>
+          <Button type="warning">警告按钮</Button>
+          <Button type="danger">危险按钮</Button>
+          <Button type="info">信息按钮</Button>
+        </Row>
+        <h2>plain</h2>
+        <Row gutter="10px">
+          <Button plain>默认按钮</Button>
+          <Button type="primary" plain>主要按钮</Button>
+          <Button type="success" plain>成功按钮</Button>
+          <Button type="warning" plain>警告按钮</Button>
+          <Button type="danger" plain>危险按钮</Button>
+          <Button type="info" plain>信息按钮</Button>
+        </Row>
+        <h2>round</h2>
+        <Row gutter="10px">
+          <Button round>默认按钮</Button>
+          <Button type="primary" round>主要按钮</Button>
+          <Button type="success" round>成功按钮</Button>
+          <Button type="warning" round>警告按钮</Button>
+          <Button type="danger" round>危险按钮</Button>
+          <Button type="info" round>信息按钮</Button>
+        </Row>
+        <h2>circle</h2>
+        <Row gutter="10px">
+          <Button circle>首</Button>
+          <Button type="primary" circle>主</Button>
+          <Button type="success" circle>成</Button>
+          <Button type="warning" circle>警</Button>
+          <Button type="danger" circle>危</Button>
+          <Button type="info" circle>信</Button>
+        </Row>
+        <h2>disabled</h2>
+        <Row gutter="10px">
+          <Button disabled>默认按钮</Button>
+          <Button type="primary" disabled>主要按钮</Button>
+          <Button type="success" disabled>成功按钮</Button>
+          <Button type="warning" disabled>警告按钮</Button>
+          <Button type="danger" disabled>危险按钮</Button>
+          <Button type="info" disabled>信息按钮</Button>
+        </Row>
+        <h2>文字按钮</h2>
+        <Row gutter="10px">
+          <Button type="text">文字按钮</Button>
+          <Button type="text" disabled>禁用文字按钮</Button>
+        </Row>
+        <h2>尺寸</h2>
+        <Row gutter="10px" align="center">
+          <Button>默认按钮</Button>
+          <Button size="medium">中等按钮</Button>
+          <Button size="small">小型按钮</Button>
+          <Button size="mini">超小按钮</Button>
+        </Row>
+        <Row gutter="10px" align="center">
+          <Button round>默认按钮</Button>
+          <Button size="medium" round>中等按钮</Button>
+          <Button size="small" round>小型按钮</Button>
+          <Button size="mini" round>超小按钮</Button>
+        </Row>
+      `,
+      };
+      createApp(App).mount("#app");
+    </script>
+  </body>
+</html>
