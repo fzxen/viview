@@ -31,7 +31,7 @@
         template: `
         <h2>type</h2>
         <Row gutter="10px">
-          <Button>默认按钮</Button>
+          <Button @click="onClick">默认按钮</Button>
           <Button type="primary">主要按钮</Button>
           <Button type="success">成功按钮</Button>
           <Button type="warning">警告按钮</Button>
@@ -93,6 +93,12 @@
           <Button size="mini" round>超小按钮</Button>
         </Row>
       `,
+
+        setup() {
+          return {
+            onClick: () => console.log("clcik"),
+          };
+        },
       };
       createApp(App).mount("#app");
     </script>

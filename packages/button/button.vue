@@ -1,11 +1,11 @@
 <template>
-  <button :class="className" :disabled="props.disabled">
+  <button :class="className" :disabled="props.disabled" @click="emitClick">
     <slot></slot>
   </button>
 </template>
 
 <script lang="ts" setup>
-import { computed, defineProps } from "vue";
+import { computed, defineProps, defineEmit } from "vue";
 import { useClassName } from "../shared";
 import type { ButtonProps } from "./utils";
 
@@ -62,4 +62,8 @@ const className = computed(() => [
     "is-autofocus": props.autofocus,
   },
 ]);
+
+const emit = defineEmit(["click"]);
+
+const emitClick = () => emit("click");
 </script>
