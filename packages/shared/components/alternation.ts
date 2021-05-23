@@ -1,16 +1,8 @@
-import { defineComponent, h } from "vue";
+import { h, FunctionalComponent } from "vue";
 
-const Alternation = defineComponent({
-  name: "Alternate",
-  inheritAttrs: false,
-  props: {
-    tag: {
-      default: "div",
-    },
-  },
-  setup(props, context) {
-    return () => h(props.tag, context.attrs, context.slots);
-  },
-});
+const Alternation: FunctionalComponent<{ tag: string; [props: string]: any }> =
+  function (props, context) {
+    return h(props.tag, context.attrs, context.slots);
+  };
 
 export default Alternation;

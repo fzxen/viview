@@ -1,5 +1,5 @@
 <template>
-  <Alternation :tap="props.tag" :class="className" :style="style">
+  <Alternation :tag="props.tag" :class="className" :style="style">
     <slot></slot>
   </Alternation>
 </template>
