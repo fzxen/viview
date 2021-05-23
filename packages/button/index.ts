@@ -10,5 +10,6 @@ Button.install = function (app: App, options: GlobalOptions) {
   app.component("ViButton", Button);
   app.component("ViButtonGroup", ButtonGroup);
 };
+Button.ButtonGroup = ButtonGroup;
 
 export default Button;

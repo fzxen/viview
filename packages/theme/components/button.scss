@@ -262,3 +262,35 @@
     );
   }
 }
+
+.#{$--prefix}_button-group {
+  display: inline-block;
+
+  .#{$--prefix}_button {
+    // border radius
+    &:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    &:last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+
+    // reset margin
+    &:not(:first-child) {
+      margin-left: 0;
+    }
+    &:not(:last-child) {
+      margin-right: 0;
+    }
+
+    // white space
+    &:not(:last-child) {
+      border-right-color: rgba($--color-white, 0.5);
+    }
+  }
+}

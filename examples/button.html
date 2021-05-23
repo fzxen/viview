@@ -27,6 +27,7 @@
           Row: Grid.Row,
           Col: Grid.Col,
           Button,
+          ButtonGroup: Button.ButtonGroup,
         },
         template: `
         <h2>type</h2>
@@ -91,6 +92,19 @@
           <Button size="medium" round>中等按钮</Button>
           <Button size="small" round>小型按钮</Button>
           <Button size="mini" round>超小按钮</Button>
+        </Row>
+        <h2>按钮组</h2>
+        <Row gutter="10px" align="center">
+          <ButtonGroup>
+            <Button type="primary">上一页</Button>
+            <Button type="primary">下一页</Button>
+          </ButtonGroup>
+
+          <ButtonGroup>
+            <Button type="primary" round>上</Button>
+            <Button type="primary" round>中</Button>
+            <Button type="primary" round>下</Button>
+          </ButtonGroup>
         </Row>
       `,
 
